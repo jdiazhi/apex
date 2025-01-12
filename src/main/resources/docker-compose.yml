@@ -1,0 +1,17 @@
+# Mongo docker image
+version: '3.7'
+
+services:
+  mongo:
+    image: 'mongo:4.4.0-rc8-bionic'
+    restart: on-failure
+    ports:
+      - 27017:27017
+    volumes:
+      - ./.mongo-volume:/data/db
+
+  mongo-express:
+    image: mongo-express
+    restart: always
+    ports:
+      - 8081:8081
